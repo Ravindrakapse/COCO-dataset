@@ -34,6 +34,19 @@ We trained segmentation models on the generated masks using different architectu
   - Class Weighting
   - Oversampling
   - Focal Loss
+ 
+### ⚙️ Techniques Used:
+
+- **Class Weighting**: Addressed pixel imbalance by assigning higher weights to rare classes (like bus, dog) and lower weight to dominant ones (person).
+- **Oversampling**: Rare-class images were duplicated in the dataset to improve representation during training.
+- **Focal Loss**: Modified loss function that down-weights easy examples and focuses on hard-to-classify pixels.
+
+### 📃 Why DeepLabV3?
+
+- DeepLabV3 is a state-of-the-art semantic segmentation architecture with an atrous spatial pyramid pooling (ASPP) module that helps in capturing multiscale context.
+- It outperforms U-Net in complex scenes by learning high-resolution details through its deeper ResNet backbone.
+- By fine-tuning DeepLabV3 on a COCO subset, we leveraged pretrained weights while adapting the classifier for our specific task.
+
 
 ### 🔢 Evaluation Metric:
 
