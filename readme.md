@@ -57,6 +57,8 @@ We trained segmentation models on the generated masks using different architectu
 
 ## 📊 Model Results:
 
+![Original image, masked image, predicted](image.png)
+
 ### 🔍 U-Net
 
 ```
@@ -108,3 +110,7 @@ Class 4: IoU = 0.0518
 ```
 
 ---
+
+## 📊 Wandb UI:
+-For training metrics
+![wandb ui](wandb_ui.png)
