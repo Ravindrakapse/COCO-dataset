@@ -114,3 +114,96 @@ Class 4: IoU = 0.0518
 ## 📊 Wandb UI:
 -For training metrics
 ![wandb ui](wandb_ui.png)
+
+---
+
+## 🛠️ How to Run This Project
+
+### 📁 Project Structure
+```
+📦 COCO-dataset
+├── 📄 dataset.ipynb        # Notebook to generate masks from COCO annotations
+├── 📄 model_train.ipynb    # Notebook to train and evaluate models (U-Net, DeepLabV3)
+├── 📄 image.png            # Original, masked, predicted image
+├── 📄 wandb_ui.png         # wandb UI snapshot
+├── 📄 pyproject.toml       # Project dependencies (used by uv)
+├── 📄 uv.lock              # Locked versions of all installed packages
+├── 📄 README.md            # Documentation and results
+```
+
+---
+
+### 🐍 Step 1: Create Virtual Environment using `uv`
+
+If you haven't already installed `uv`, install it with:
+
+```bash
+pip install uv
+```
+
+Then initialize and activate the environment:
+
+```bash
+uv venv
+#activate
+#for mac/linux
+source .venv/bin/activate
+
+#for windows
+.venv\Scripts\activate
+```
+
+---
+
+### 📦 Step 2: Install Dependencies
+
+Install all required packages :
+
+```bash
+uv sync
+```
+
+> ✅ This ensures that you have all necessary libraries like `torch`, `opencv-python`, `albumentations`, `pycocotools`, `wandb`, etc.
+
+---
+### 📓 Step 3: get the COCO dataset
+
+```bash
+# Download validation images (5,000 images)
+wget http://images.cocodataset.org/zips/val2017.zip
+unzip val2017.zip -d images
+
+# Download annotations (contains segmentations)
+wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+unzip annotations_trainval2017.zip -d annotations
+
+```
+structure
+```
+coco_dataset/
+├── images/
+│   └── val2017/                    <-- All validation images
+├── annotations/
+│   └── instances_val2017.json      <-- Annotation file
+```
+---
+
+### 📓 Step 3: Run the Notebooks
+
+Now you can open the notebooks using Jupyter:
+
+```bash
+jupyter notebook
+```
+
+Then open:
+- `dataset.ipynb` to generate training masks
+- `model_train.ipynb` to train and evaluate models
+
+---
+
+### ✅ Tips
+
+- Make sure you have the COCO `annotations` and `images` folders correctly set in your notebook paths.
+
+---
